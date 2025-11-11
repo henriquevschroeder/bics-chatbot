@@ -6,12 +6,15 @@ corpus local de trechos Python válidos (coluna 'output').
 Requer:
     pip install datasets tqdm
 """
+import ast
+import os
+
 from datasets import load_dataset
-import ast, os
 from tqdm import tqdm
 
 OUT_DIR = "data/corpus"
 os.makedirs(OUT_DIR, exist_ok=True)
+
 
 def is_valid_python(code: str) -> bool:
     try:
@@ -19,6 +22,7 @@ def is_valid_python(code: str) -> bool:
         return True
     except SyntaxError:
         return False
+
 
 def main():
     ds = load_dataset("iamtarun/python_code_instructions_18k_alpaca", split="train")
@@ -29,13 +33,11 @@ def main():
             if not code.strip():
                 continue
             if is_valid_python(code):
-                f.write(code.strip() + "
-
-# ---- SAMPLE SEP ----
-
-")
+                f.write(code.strip())
+                f.write("\n\n# ---- SAMPLE SEP ----\n\n")
                 kept += 1
     print(f"Trechos válidos: {kept}")
+
 
 if __name__ == "__main__":
     main()

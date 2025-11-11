@@ -3,11 +3,15 @@ repos:
   rev: 24.8.0
   hooks:
     - id: black
+      files: ^(src|tests|scripts)/.*\.py$
+
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.6.8
   hooks:
     - id: ruff
       args: [--fix]
+      files: ^(src|tests|scripts)/.*\.py$
+
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.6.0
   hooks:

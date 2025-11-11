@@ -1,10 +1,27 @@
-fastapi
-uvicorn[standard]
-pydantic>=2
-black
-ruff
-pytest
-httpx
-tqdm
-datasets>=2.14
-pre-commit
+<file name=.pre-commit-config.yaml>repos:
+- repo: https://github.com/psf/black
+  rev: 23.3.0
+  hooks:
+    - id: black
+      files: ^(src|tests|scripts)/.*\.py$
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  rev: v0.0.241
+  hooks:
+    - id: ruff
+      args: [--fix]
+      files: ^(src|tests|scripts)/.*\.py$
+</file>
+
+<file name=pyproject.toml>[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E","F","I","UP","B"]
+</file>
+
+<file name=scripts/prepare_dataset.py>    if is_valid_python(code):
+        f.write(code.strip())
+        f.write("\n\n# ---- SAMPLE SEP ----\n\n")
+        kept += 1
+</file>
