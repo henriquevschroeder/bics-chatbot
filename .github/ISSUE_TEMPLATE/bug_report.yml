@@ -1,0 +1,14 @@
+name: Bug report
+description: Reporte um problema
+title: "[BUG] "
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: Descrição
+  - type: textarea
+    attributes:
+      label: Como reproduzir
+  - type: textarea
+    attributes:
+      label: Logs/erros

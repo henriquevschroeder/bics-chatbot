@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic>=2
+black
+ruff
+pytest
+httpx
+tqdm
+datasets>=2.14
+pre-commit
