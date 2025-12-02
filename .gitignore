@@ -6,4 +6,3 @@ build/
 .coverage
 .pytest_cache/
 .data/
-data/
